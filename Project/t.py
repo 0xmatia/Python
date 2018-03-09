@@ -1,61 +1,59 @@
-import termcolor
-
-HANGMAN_PHOTOS = {"stage 0": termcolor.colored("""
+HANGMAN_PHOTOS = {"stage 1": """
 x-------x
-""", "green")}
+"""}
 
-HANGMAN_PHOTOS["stage 1"] = termcolor.colored("""
+HANGMAN_PHOTOS["stage 2"] = """
 x-------x
 |
 |
 |
 |
 |
-""", "green")
+"""
 
-HANGMAN_PHOTOS["stage 2"] = termcolor.colored("""
+HANGMAN_PHOTOS["stage 3"] = """
 x-------x
 |       |
 |       0
 |
 |
 |
-""", "green")
+"""
 
-HANGMAN_PHOTOS["stage 3"] = termcolor.colored("""
+HANGMAN_PHOTOS["stage 4"] = """
 x-------x
 |       |
 |       0
 |       |
 |
 |
-""", "green")
+"""
 
-HANGMAN_PHOTOS["stage 4"] = termcolor.colored("""
+HANGMAN_PHOTOS["stage 5"] = """
 x-------x
 |       |
 |       0
 |      /|\\
 |
 |
-""", "green")
+"""
 
-HANGMAN_PHOTOS["stage 5"] = termcolor.colored("""
+HANGMAN_PHOTOS["stage 6"] = """
 x-------x
 |       |
 |       0
 |      /|\\
 |      /
 |
-""", "green")
+"""
 
-HANGMAN_PHOTOS["stage 6"] = termcolor.colored("""
+HANGMAN_PHOTOS["stage 7"] = """
 x-------x
 |       |
 |       0
 |      /|\\
 |      / \\
-|""", "green")
+|"""
 
 
 def print_hangman(num_of_tries):
