@@ -27,19 +27,25 @@ def put_in_list(path):
 def read_line(path):
     list = open(path).readlines()
     new_list = []
+    another_list = []
     index1 = 0
     index2 = 0
     final_string = ""
     for line in list:
         new_list.append(re.sub("[^\w]", " ", line).split())  # -> taken from stack overflow! <-
+    # reverse the rows
+    for line in new_list:
+        a = line[::-1]
+        another_list.append(a)
+
     # revert all the words in the list
-    for line in new_list:
+    for line in another_list:
         for word in line:
-            new_list[index1][index2] = word[::-1]
+            another_list[index1][index2] = word[::-1]
             index2 += 1
-        index1 += 1
         index2 = 0
-    for line in new_list:
+        index1 += 1
+    for line in another_list:
         for word in line:
             final_string = final_string + " " + word
         final_string = final_string + '\n'
