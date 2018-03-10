@@ -24,7 +24,7 @@ def put_in_list(path):
     return no_duplicate
 
 
-def read_line(path):
+def rev(path):
     list = open(path).readlines()
     new_list = []
     another_list = []
