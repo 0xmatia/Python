@@ -25,9 +25,9 @@ def put_in_list(path):
     no_duplicate = []
     with open(path, "r") as text_file:
         string = text_file.read()
-    new_list = re.sub("[^\w]", " ", string).split()  # -> taken from stack overflow! <-
+    new_list = string.split()
     for item in new_list:
-        if item not in no_duplicate:
+        if item not in no_duplicate and (not item == ''):
             no_duplicate.append(item)
     return no_duplicate
 

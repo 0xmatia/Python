@@ -68,3 +68,4 @@ def print_hangman(num_of_tries):
     print(HANGMAN_PHOTOS["stage "+str(num_of_tries)])
 
 
+print_hangman(5)
