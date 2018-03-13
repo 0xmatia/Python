@@ -36,6 +36,7 @@ def has_number(password):
     return False
 
 def has_small_letter(password):
+    pass
 
 if __name__ == '__main__':
     main()
