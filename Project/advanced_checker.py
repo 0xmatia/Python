@@ -2,7 +2,7 @@ def check_valid_input(letter_guessed, old_letters_guessed):
     """
     This function checks if the user entered the input correctly: length of the string is 1, the letter guessed isn't in the old_letters_guessed list, and no special characters
     :param letter_guessed: the input the user entered
-    :type letter_guessed int
+    :type letter_guessed str
     :param old_letters_guessed: The list with all the previous guesses
     :type old_letters_guessed: list
     :return: True if the input is valid, false otherwise
