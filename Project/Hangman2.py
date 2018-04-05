@@ -1,46 +1,34 @@
+import urllib.request
+
+
 def main():
     MAX_TRIES = 6
-    CONTINUE = ["G", "GO", "g", "go"]
-    EXIT = ["E", "e", "EXIT", "exit", "Exit"]
-    choice = "G"
     num_of_tries = 0
     old_letters_guessed = []
-    instructions()
     print_hangman()
-    print("You have " + str(MAX_TRIES) + " guessed left")
+    print(MAX_TRIES)
     # asks for file path:
+    urllib ("http://www.example.com/songs/mp3.mp3", "mp3.mp3")
     file_path = input("Enter file path: ")
-    while choice in CONTINUE:
-        num_of_tries = 0
-        choice = ""
-        old_letters_guessed = []
-        index = int(input("Enter index: "))
-        secret_word = choose_word(file_path, index)
-        hangman_pics(num_of_tries)
-        while not check_win(secret_word, old_letters_guessed):
-            print(show_hidden_word(secret_word, old_letters_guessed))
+    index = int(input("Enter index: "))
+    secret_word = choose_word(file_path, index)
+    hangman_pics(num_of_tries)
+    while not check_win(secret_word, old_letters_guessed):
+        print(show_hidden_word(secret_word, old_letters_guessed))
+        guess = input("Guess a letter: ")
+        while not try_update_letter_guessed(guess, old_letters_guessed):
             guess = input("Guess a letter: ")
-            while not try_update_letter_guessed(guess, old_letters_guessed):
-                guess = input("Guess a letter: ")
-            if guess not in secret_word:
-                print(":(")
-                num_of_tries += 1
-                hangman_pics(num_of_tries)
-                if num_of_tries == MAX_TRIES:
-                    print(show_hidden_word(secret_word, old_letters_guessed))
-                    print("\n\n-------You have lost!------\n\n")
-                    break
-        if check_win(secret_word, old_letters_guessed):
-            print(show_hidden_word(secret_word, old_letters_guessed))
-            print("\n\n-------You have won!------\n\n")
-        # reset the game
-        while (choice not in EXIT) and (choice not in CONTINUE):
-            choice = input("Type g, G or GO to play again! \nType E, e or Exit to exit the game ")
-        if choice in EXIT:
-            break
-        else:
-            print_hangman()
-            print("You have " + str(MAX_TRIES) + " guessed left")
+        if guess not in secret_word:
+            print(":(")
+            num_of_tries += 1
+            hangman_pics(num_of_tries)
+            if num_of_tries == MAX_TRIES:
+                print(show_hidden_word(secret_word, old_letters_guessed))
+                print("LOSE")
+                break
+    if check_win(secret_word, old_letters_guessed):
+        print(show_hidden_word(secret_word, old_letters_guessed))
+        print("WIN")
 
 
 def print_hangman():
@@ -215,12 +203,6 @@ def check_win(secret_word, old_letters_guessed):
     if length == len(secret_word):
         return True
     return False
-
-
-def instructions():
-    print("\n")
-    hangman_pics(6)
-    print("**Find all the letters in the word or else he will hang!**\n")
 
 
 if __name__ == '__main__':
